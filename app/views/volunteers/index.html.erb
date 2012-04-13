@@ -12,11 +12,7 @@
 	<td><%= image_tag("#{volunteer.photo_url}", {width: 75}) %></td>  
     <td><%= volunteer.full_name %></td>
 	<td><%= render partial: 'star', collection: volunteer.stars %></td>
-	<%# these should only show for adminsitrator%>
-    <%#= link_to 'Show', volunteer %>
-    <td><%= link_to 'Edit', edit_volunteer_path(volunteer) %> |
-		<%= link_to 'Destroy', volunteer, confirm: 'Are you sure?', method: :delete %> |
-		<%= link_to 'Add Star', new_volunteer_star_path(volunteer) %></td>
+	<td><%= render(partial: 'record_admin', locals: {volunteer: volunteer}) if signed_in? %></td>
 
   </tr>
 <% end %>
@@ -24,4 +20,4 @@
 
 <br />
 
-<%= link_to 'New Volunteer', new_volunteer_path %>
+<%= link_to('New Volunteer', new_volunteer_path) if signed_in? %>

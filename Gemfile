@@ -9,10 +9,7 @@ gem 'sqlite3'
 gem 'twitter-bootstrap-rails'
 gem 'devise'
 gem 'inherited_resources'
-gem 'rspec-rails'
-gem 'capybara'
-gem 'nyan-cat-formatter'
-gem 'factory_girl_rails'
+
 gem 'curb'
 gem 'heroku'
 
@@ -24,4 +21,11 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :development do
+  gem 'ruby-debug19'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'nyan-cat-formatter'
+  gem 'factory_girl_rails'
+end
 gem 'jquery-rails'

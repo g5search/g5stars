@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :activity %><br />
+    <%= f.label :activity, "What did they do?" %><br />
     <%= f.text_field :activity %>
   </div>
   <div class="field">
-    <%= f.label :board_member, "Role" %><br />
+    <%= f.label :board_member, "What was their role?" %><br />
     <%= f.select(:board_member, [["Volunteer",false],["Board Member",true]])%>
 
   </div>
