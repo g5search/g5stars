@@ -11,7 +11,7 @@
   <tr>
 	<td><%= image_tag("#{volunteer.photo_url}", {width: 75}) %></td>  
     <td><%= volunteer.full_name %></td>
-	<td><%= render partial: 'star', collection: volunteer.stars %></td>
+	<td><%= render partial: 'star', collection: volunteer.stars.ordered %></td>
 	<td><%= render(partial: 'record_admin', locals: {volunteer: volunteer}) if signed_in? %></td>
 
   </tr>
