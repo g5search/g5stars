@@ -12,7 +12,7 @@ gem 'inherited_resources'
 gem 'rspec-rails'
 gem 'capybara'
 gem 'nyan-cat-formatter'
-
+gem 'factory_girl_rails'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -1,0 +1,29 @@
+<h1>Listing volunteers</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @volunteers.each do |volunteer| %>
+  <tr>
+	<td><%= image_tag("#{volunteer.photo_url}", {width: 75}) %></td>  
+    <td><%= volunteer.first_name %></td>
+    <td><%= volunteer.last_name %></td>
+	<td><% volunteer.stars.each do |star|%>
+		<%= image_tag 'star.png', {width: 32 } %>
+		<% end %></td>
+	<%# these should only show for adminsitrator%>
+    <td><%#= link_to 'Show', volunteer %></td>
+    <td><%= link_to 'Edit', edit_volunteer_path(volunteer) %>
+		<%= link_to '....Destroy', volunteer, confirm: 'Are you sure?', method: :delete %></td>
+	<td><%= link_to 'Add Star', new_volunteer_star_path(volunteer) %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Volunteer', new_volunteer_path %>
