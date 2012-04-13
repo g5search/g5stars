@@ -9,7 +9,7 @@ gem 'sqlite3'
 gem 'twitter-bootstrap-rails'
 gem 'devise'
 gem 'inherited_resources'
-
+gem 'activerecord-postgresql-adapter'
 gem 'curb'
 gem 'heroku'
 
