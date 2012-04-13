@@ -21,4 +21,11 @@ describe Volunteer do
       v.stars.first.activity.should == "tie my shoes"
     end
   end
+  
+  describe "#full_name" do
+    it "should combine the first and last name into one glorious ultra name" do
+      v = Volunteer.new(first_name: "Michael", last_name: "Mitchell")
+      v.full_name.should == "Michael Mitchell"
+    end
+  end
 end
