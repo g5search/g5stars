@@ -106,6 +106,7 @@ GEM
     nokogiri (1.5.2)
     nyan-cat-formatter (0.0.6)
     orm_adapter (0.0.7)
+    pg (0.13.2)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -209,6 +210,7 @@ DEPENDENCIES
   inherited_resources
   jquery-rails
   nyan-cat-formatter
+  pg
   rails (= 3.2.3)
   rspec-rails
   ruby-debug19
