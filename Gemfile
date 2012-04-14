@@ -5,7 +5,6 @@ gem 'rails', '3.2.3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 gem 'twitter-bootstrap-rails'
 gem 'devise'
 gem 'inherited_resources'
@@ -13,6 +12,9 @@ gem 'curb'
 gem 'heroku'
 
 group :production do
+  gem 'pg'  
+end
+
 end
 
 # Gems used only for assets and not required
@@ -29,5 +31,8 @@ group :development do
   gem 'capybara'
   gem 'nyan-cat-formatter'
   gem 'factory_girl_rails'
+  gem 'sqlite3'
 end
+
+
 gem 'jquery-rails'
