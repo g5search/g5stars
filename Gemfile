@@ -9,9 +9,11 @@ gem 'sqlite3'
 gem 'twitter-bootstrap-rails'
 gem 'devise'
 gem 'inherited_resources'
-gem 'activerecord-postgresql-adapter'
 gem 'curb'
 gem 'heroku'
+
+group :production do
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
