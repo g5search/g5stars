@@ -19,6 +19,9 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe VolunteersController do
+  before do
+    sign_in :user, @user
+  end
 
   # This should return the minimal set of attributes required to create a valid
   # Volunteer. As you add validations to Volunteer, be sure to
