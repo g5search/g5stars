@@ -1,5 +1,7 @@
 require 'open-uri'
 require 'curb'
+require 'nokogiri'
+
 class Volunteer < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :photo_url
   validates_presence_of :first_name, :last_name
@@ -11,7 +13,9 @@ class Volunteer < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}"
   end
+  
 protected
+
   def go_get_the_picture_from_g5s_site
     begin
       curl = Curl::Easy.perform(BASE_URL)
