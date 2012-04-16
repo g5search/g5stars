@@ -209,6 +209,7 @@ DEPENDENCIES
   heroku
   inherited_resources
   jquery-rails
+  nokogiri
   nyan-cat-formatter
   pg
   rails (= 3.2.3)

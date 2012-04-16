@@ -10,6 +10,7 @@ gem 'devise'
 gem 'inherited_resources'
 gem 'curb'
 gem 'heroku'
+gem 'nokogiri'
 
 group :production do
   gem 'pg'  
