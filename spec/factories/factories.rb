@@ -9,7 +9,7 @@ FactoryGirl.define do
     board_member false
   end
   factory :user do
-    email "admin@example.com"
+    sequence(:email) {|n| "admin#{n}@example.com"}
     password "password"
     password_confirmation "password"
   end

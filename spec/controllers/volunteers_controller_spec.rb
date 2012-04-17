@@ -21,13 +21,7 @@ require 'spec_helper'
 describe VolunteersController do
   login_user
 
-  # This should return the minimal set of attributes required to create a valid
-  # Volunteer. As you add validations to Volunteer, be sure to
-  # update the return value of this method accordingly.
-  def valid_attributes
-    {first_name: "Dan", last_name: "Hobin"}
-  end
-  
+
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # VolunteersController. Be sure to keep this updated too.
@@ -35,9 +29,13 @@ describe VolunteersController do
     {}
   end
 
+  def valid_attributes
+    {first_name: "Dan", last_name: "Hobin"}
+  end
+
   describe "GET index" do
     it "assigns all volunteers as @volunteers" do
-      volunteer = Volunteer.create! valid_attributes
+      volunteer = FactoryGirl.create(:volunteer)
       get :index, {}, valid_session
       assigns(:volunteers).should eq([volunteer])
     end
@@ -45,7 +43,7 @@ describe VolunteersController do
 
   describe "GET show" do
     it "assigns the requested volunteer as @volunteer" do
-      volunteer = Volunteer.create! valid_attributes
+      volunteer = FactoryGirl.create(:volunteer)
       get :show, {:id => volunteer.to_param}, valid_session
       assigns(:volunteer).should eq(volunteer)
     end
@@ -53,15 +51,15 @@ describe VolunteersController do
 
   describe "GET new" do
     it "assigns a new volunteer as @volunteer" do
-      get :new, {}, valid_session
+      get :new
       assigns(:volunteer).should be_a_new(Volunteer)
     end
   end
 
   describe "GET edit" do
     it "assigns the requested volunteer as @volunteer" do
-      volunteer = Volunteer.create! valid_attributes
-      get :edit, {:id => volunteer.to_param}, valid_session
+      volunteer = FactoryGirl.create(:volunteer)
+      get :edit, {:id => volunteer.to_param}
       assigns(:volunteer).should eq(volunteer)
     end
   end
@@ -70,19 +68,19 @@ describe VolunteersController do
     describe "with valid params" do
       it "creates a new Volunteer" do
         expect {
-          post :create, {:volunteer => valid_attributes}, valid_session
+          post :create, {:volunteer => valid_attributes}
         }.to change(Volunteer, :count).by(1)
       end
 
       it "assigns a newly created volunteer as @volunteer" do
-        post :create, {:volunteer => valid_attributes}, valid_session
+        post :create, {:volunteer => valid_attributes}
         assigns(:volunteer).should be_a(Volunteer)
         assigns(:volunteer).should be_persisted
       end
 
-      it "redirects to the created volunteer" do
-        post :create, {:volunteer => valid_attributes}, valid_session
-        response.should redirect_to(Volunteer.last)
+      it "redirects to the index" do
+        post :create, {:volunteer => valid_attributes}
+        response.should redirect_to(:controller => :volunteers, :action => :index)
       end
     end
 
@@ -104,38 +102,38 @@ describe VolunteersController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested volunteer" do
-        volunteer = Volunteer.create! valid_attributes
+        volunteer = FactoryGirl.create(:volunteer)
         Volunteer.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, {:id => volunteer.to_param, :volunteer => {'these' => 'params'}}, valid_session
+        put :update, {:id => volunteer.to_param, :volunteer => {'these' => 'params'}}
       end
 
       it "assigns the requested volunteer as @volunteer" do
-        volunteer = Volunteer.create! valid_attributes
-        put :update, {:id => volunteer.to_param, :volunteer => valid_attributes}, valid_session
+        volunteer = FactoryGirl.create(:volunteer)
+        put :update, {:id => volunteer.to_param, :volunteer => valid_attributes}
         assigns(:volunteer).should eq(volunteer)
       end
 
       it "redirects to the volunteer" do
-        volunteer = Volunteer.create! valid_attributes
-        put :update, {:id => volunteer.to_param, :volunteer => valid_attributes}, valid_session
+        volunteer = FactoryGirl.create(:volunteer)
+        put :update, {:id => volunteer.to_param, :volunteer => valid_attributes}
         response.should redirect_to(volunteer)
       end
     end
 
     describe "with invalid params" do
       it "assigns the volunteer as @volunteer" do
-        volunteer = Volunteer.create! valid_attributes
+        volunteer = FactoryGirl.create(:volunteer)
         # Trigger the behavior that occurs when invalid params are submitted
         Volunteer.any_instance.stub(:save).and_return(false)
-        put :update, {:id => volunteer.to_param, :volunteer => {}}, valid_session
+        put :update, {:id => volunteer.to_param, :volunteer => {}}
         assigns(:volunteer).should eq(volunteer)
       end
 
       it "re-renders the 'edit' template" do
-        volunteer = Volunteer.create! valid_attributes
+        volunteer = FactoryGirl.create(:volunteer)
         # Trigger the behavior that occurs when invalid params are submitted
         Volunteer.any_instance.stub(:save).and_return(false)
-        put :update, {:id => volunteer.to_param, :volunteer => {}}, valid_session
+        put :update, {:id => volunteer.to_param, :volunteer => {}}
         response.should redirect_to volunteer_path
       end
     end
@@ -143,15 +141,15 @@ describe VolunteersController do
 
   describe "DELETE destroy" do
     it "destroys the requested volunteer" do
-      volunteer = Volunteer.create! valid_attributes
+      volunteer = FactoryGirl.create(:volunteer)
       expect {
-        delete :destroy, {:id => volunteer.to_param}, valid_session
+        delete :destroy, {:id => volunteer.to_param}
       }.to change(Volunteer, :count).by(-1)
     end
 
     it "redirects to the volunteers list" do
-      volunteer = Volunteer.create! valid_attributes
-      delete :destroy, {:id => volunteer.to_param}, valid_session
+      volunteer = FactoryGirl.create(:volunteer)
+      delete :destroy, {:id => volunteer.to_param}
       response.should redirect_to(volunteers_url)
     end
   end
