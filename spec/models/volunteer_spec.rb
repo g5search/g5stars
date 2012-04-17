@@ -1,13 +1,14 @@
 require 'spec_helper'
 
 describe Volunteer do
+  
   context "validations" do
     it "Can't create a volunteer without a first name" do
       v = Volunteer.new
       v.should_not be_valid
       v.errors[:first_name].should_not be_empty
     end
-    it "Can't create a volunteer without a first name" do
+    it "Can't create a volunteer without a last name" do
       v = Volunteer.new
       v.should_not be_valid
       v.errors[:last_name].should_not be_empty

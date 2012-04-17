@@ -9,8 +9,20 @@ class Volunteer < ActiveRecord::Base
   
   BASE_URL = 'http://www.g5platform.com/g5_team'
   
+  def self.nice_guys
+    self.joins(:stars).select("distinct(volunteers.id)")
+  end
+  
   def full_name
     "#{first_name} #{last_name}"
+  end
+  
+  def self.all_volunteer
+    self.all
+  end
+  
+  def self.participation
+    (self.nice_guys.count*100).to_f / self.all_volunteer.count.to_f 
   end
   
 protected

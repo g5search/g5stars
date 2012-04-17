@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe StarsController do
-
   describe "GET 'new'" do
     it "returns http success" do
       get 'new'

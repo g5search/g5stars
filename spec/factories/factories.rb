@@ -8,4 +8,9 @@ FactoryGirl.define do
     activity "tie my shoes"
     board_member false
   end
+  factory :user do
+    email "admin@example.com"
+    password "password"
+    password_confirmation "password"
+  end
 end
