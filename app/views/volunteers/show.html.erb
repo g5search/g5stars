@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <%= image_tag("#{@volunteer.photo_url}", width: 200) %>
+</p>
+
+<p>
   <b>First name:</b>
   <%= @volunteer.first_name %>
 </p>
@@ -11,5 +15,6 @@
 </p>
 
 
-<%= link_to 'Edit', edit_volunteer_path(@volunteer) %> |
-<%= link_to 'Back', volunteers_path %>
+<td><%= render(partial: 'record_admin', locals: {volunteer: @volunteer}) if signed_in? %></td>
+<br><br>
+<p><%= render partial: 'star_desc', collection: @volunteer.stars.ordered, as: :star %></p>

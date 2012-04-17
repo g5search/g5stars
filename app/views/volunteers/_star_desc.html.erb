@@ -1,0 +1,7 @@
+<% if star.board_member == true %>
+  <%= image_tag 'blue-star.png', {width: 32 } %>
+  <%= star.activity %><br>
+<% else %>
+  <%= image_tag 'star.png', {width: 32 } %>
+  <%= star.activity %><br>
+<% end %>
