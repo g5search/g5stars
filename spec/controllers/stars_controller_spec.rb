@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'factory_girl'
 
 describe StarsController do
   login_user
