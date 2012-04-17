@@ -11,7 +11,6 @@ gem 'inherited_resources'
 gem 'curb'
 gem 'heroku'
 gem 'nokogiri'
-gem 'factory_girl_rails'
 
 group :production do
   gem 'pg'  
@@ -30,6 +29,7 @@ group :development do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'nyan-cat-formatter'
+  gem 'factory_girl_rails'
   gem 'sqlite3'
 end
 
