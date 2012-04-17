@@ -1,6 +1,7 @@
 require "spec_helper"
 
 describe VolunteersController do
+  
   describe "routing" do
 
     it "routes to #index" do

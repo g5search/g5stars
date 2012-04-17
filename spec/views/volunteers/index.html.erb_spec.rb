@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe "volunteers/index" do
+  login_user
+  
   before(:each) do
     volunteer = FactoryGirl.create(:volunteer, first_name: "Colton", last_name: "Fent")
     FactoryGirl.create(:star, volunteer: volunteer)

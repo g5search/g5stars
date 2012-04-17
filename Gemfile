@@ -24,13 +24,17 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-group :development do
-  gem 'ruby-debug19'
+group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'nyan-cat-formatter'
   gem 'factory_girl_rails'
+  gem 'factory_girl'
+end
+
+group :development, :test do
   gem 'sqlite3'
+  gem 'ruby-debug19'
 end
 
 

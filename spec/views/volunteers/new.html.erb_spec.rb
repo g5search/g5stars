@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe "volunteers/new" do
+  login_user
+  
   before(:each) do
     assign(:volunteer, stub_model(Volunteer,
       :first_name => "MyString",
