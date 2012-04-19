@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120413185113) do
+ActiveRecord::Schema.define(:version => 20120419023652) do
 
   create_table "stars", :force => true do |t|
     t.integer  "volunteer_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20120413185113) do
     t.boolean  "board_member"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "time_spent"
   end
 
   add_index "stars", ["volunteer_id"], :name => "index_stars_on_volunteer_id"
