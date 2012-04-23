@@ -3,6 +3,11 @@ class VolunteersController < ApplicationController
   actions :all
   before_filter :authenticate_user!, :except => [:index, :show]
   
+  # def index
+  #   index! do |format|
+  #     format.tv { render "meh" }
+  #   end
+  # end
   
   def create
     create! do |format|

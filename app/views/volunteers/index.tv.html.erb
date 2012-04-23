@@ -1,0 +1,11 @@
+
+<table>
+<% @volunteers.each do |volunteer| %>
+  <tr>
+	<td><%= image_tag("#{volunteer.photo_url}", {width: 75}) %></td>  
+    <td><%= link_to("#{volunteer.full_name}", volunteer_path(volunteer)) %></td>
+	<td><%= render(partial: 'star', collection: volunteer.stars.ordered) %></td>
+  </tr>
+<% end %>
+</table>
+
