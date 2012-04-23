@@ -1,5 +1,3 @@
-require 'ruby-debug'
-
 class AddActivityIdVolunteerIdToStars < ActiveRecord::Migration
   def up
     add_column :stars, :activity_id, :integer
