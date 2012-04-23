@@ -8,7 +8,7 @@ gem 'rails', '3.2.3'
 gem 'twitter-bootstrap-rails'
 gem 'devise'
 gem 'inherited_resources'
-gem 'curb'
+#gem 'curb'
 gem 'heroku'
 gem 'nokogiri'
 

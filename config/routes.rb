@@ -1,20 +1,16 @@
 G5stars::Application.routes.draw do
-  
-  get "stars/new"
-
-  get "stars/destroy"
-
-  get "stars/create"
 
   resources :volunteers do
     resources :stars
   end
 
+  resources :activities
+
   devise_for :users
 
   root :to => "volunteers#index"
-  
-  
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

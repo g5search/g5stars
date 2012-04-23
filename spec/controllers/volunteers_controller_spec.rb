@@ -36,8 +36,9 @@ describe VolunteersController do
   describe "GET index" do
     it "assigns all volunteers as @volunteers" do
       volunteer = FactoryGirl.create(:volunteer)
+      volunteers = Volunteer.all
       get :index, {}, valid_session
-      assigns(:volunteers).should eq([volunteer])
+      assigns(:volunteers).should eq(volunteers)
     end
   end
 
