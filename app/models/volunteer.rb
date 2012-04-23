@@ -25,7 +25,7 @@ class Volunteer < ActiveRecord::Base
   end
 
   def self.participation
-    (self.nice_guys.count*100).to_f / self.all_volunteer.count.to_f 
+    (self.nice_guys.count*100).to_f / self.all_volunteer.count.to_f
   end
 
 protected
