@@ -3,4 +3,4 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
   $('#star_activity_name').autocomplete
-    #source: ['foo', 'food', 'four']
+    source: $('#star_activity_name').data('autocomplete-source')
