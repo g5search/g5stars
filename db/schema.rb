@@ -11,15 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120419023652) do
+ActiveRecord::Schema.define(:version => 20120422043039) do
+
+  create_table "activities", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "stars", :force => true do |t|
     t.integer  "volunteer_id"
-    t.string   "activity"
     t.boolean  "board_member"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.integer  "time_spent"
+    t.integer  "activity_id"
   end
 
   add_index "stars", ["volunteer_id"], :name => "index_stars_on_volunteer_id"
