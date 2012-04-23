@@ -7,7 +7,7 @@ class Star < ActiveRecord::Base
   scope :ordered, order("board_member DESC")
     
   def self.donated_blood
-    self.joins(:activity).where("name ilike ?", "%blood%")
+    self.joins(:activity).where("name like ?", "%Blood%")
   end
   
   def activity_name
