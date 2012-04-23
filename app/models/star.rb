@@ -5,9 +5,11 @@ class Star < ActiveRecord::Base
   attr_accessible :activity, :board_member, :activity_name
 
   scope :ordered, order("board_member DESC")
-  scope :donated_blood, joins(:activity).where("name like ?", "%blood%")
+    
+  def self.donated_blood
+    self.joins(:activity).where("name like ?", "%blood%")
+  end
   
-
   def activity_name
     activity.try(:name)
   end
