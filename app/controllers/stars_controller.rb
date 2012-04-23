@@ -1,5 +1,6 @@
 class StarsController < ApplicationController
   inherit_resources
+  belongs_to :volunteer
   actions :new, :destroy, :create
   before_filter :authenticate_user!
 
