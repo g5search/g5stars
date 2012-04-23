@@ -3,4 +3,5 @@ class Activity < ActiveRecord::Base
 
   has_many :volunteers, :through => :stars
   has_many :stars
+  
 end
