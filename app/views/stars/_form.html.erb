@@ -22,6 +22,11 @@
     <%= f.select(:board_member, [["Volunteer",false],["Board Member",true]])%>
 
   </div>
+  <div class="field">
+    <%= f.label :activity_name, "What activity" %><br />
+    <%= f.text_field :activity_name, data: {autocomplete_source: activities_path} %>
+
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
