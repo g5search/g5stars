@@ -13,6 +13,12 @@ describe Star do
       s.should_not be_valid
       s.errors[:time_spent].should_not be_empty
     end
+    it "can't save time that isn't a number" do
+      s = Star.new
+      s.time_spent = "booger"
+      s.should_not be_valid
+      s.errors[:time_spent].should_not be_empty
+    end
   end
   
   describe "ordered" do
