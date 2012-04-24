@@ -1,6 +1,7 @@
 class Star < ActiveRecord::Base
   belongs_to :volunteer
   belongs_to :activity
+  validates_presence_of :time_spent, :activity_name
 
   attr_accessible :activity, :board_member, :activity_name, :time_spent
 

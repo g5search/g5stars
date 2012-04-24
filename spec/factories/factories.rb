@@ -13,6 +13,7 @@ FactoryGirl.define do
 
   factory :star do
     board_member false
+    activity_name "tie my shoes"
 
     factory :blood_star do
       association(:activity, :name => "Donated Blood")
