@@ -27,6 +27,11 @@
     <%= f.text_field :activity_name, data: {autocomplete_source: activities_path} %>
 
   </div>
+  <div class="field">
+    <%= f.label :time_spent, "Time Spent" %><br />
+    <%= f.text_field :time_spent %> Hours
+
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
