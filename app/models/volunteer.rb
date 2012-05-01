@@ -10,7 +10,7 @@ class Volunteer < ActiveRecord::Base
 
   after_create :go_get_the_picture_from_g5s_site
 
-  BASE_URL = 'http://www.g5platform.com/g5_team'
+  BASE_URL = 'http://www.g5platform.com.g5demo.com/g5_team'
 
   def self.nice_guys
     self.joins(:stars).select("distinct(volunteers.id)")
