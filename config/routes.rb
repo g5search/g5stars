@@ -1,5 +1,7 @@
 G5stars::Application.routes.draw do
 
+  resources :donations
+
   resources :volunteers do
     resources :stars
   end

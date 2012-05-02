@@ -34,6 +34,7 @@
             <ul class="nav">
               <li><%= link_to("Sign Out", destroy_user_session_path, :method=>'delete') if signed_in? %></li>
 			        <li><%= link_to "Sign In?", new_user_session_path if !signed_in? %></li>
+              <li><%= link_to "Donations", donations_path if signed_in? %>
             </ul>
           </div><!--/.nav-collapse --> 
         </div>
@@ -46,11 +47,13 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
 	   			    <li><h2><%= number_to_percentage(Volunteer.participation, precision: 0) %></h2></li>
-					    <li><h3>Participation Rate</h3></li><br><br>
+							<li><h3>Participation Rate</h3></li><br><br>
               <li><h2><%= Star.donated_blood.count*3 %></h2></li>
               <li><h3>Lives Saved by G5'ers</h3></li><br><br>
               <li><h2><%= Star.donated_hours.to_i %></h2></li>
-              <li><h3>Hours Spent Volunteering</h3></li>
+              <li><h3>Hours Spent Volunteering</h3></li><br><br>
+			  			<li><h2>$<%= Donation.total_donated.to_i%></h2></li>
+              <li><h3>Dollars Donated</h3></li>
             </ul>
 					</div><!--/.well -->
         </div><!--/span-->

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120424164653) do
+ActiveRecord::Schema.define(:version => 20120501234214) do
 
   create_table "activities", :force => true do |t|
     t.string    "name"
@@ -20,13 +20,20 @@ ActiveRecord::Schema.define(:version => 20120424164653) do
     t.timestamp "updated_at",  :null => false
   end
 
+  create_table "donations", :force => true do |t|
+    t.string   "recipient"
+    t.integer  "value"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "stars", :force => true do |t|
-    t.integer  "volunteer_id"
-    t.boolean  "board_member"
-    t.datetime "created_at",                                                  :null => false
-    t.datetime "updated_at",                                                  :null => false
-    t.decimal  "time_spent",   :precision => 5, :scale => 2, :default => 1.0
-    t.integer  "activity_id"
+    t.integer   "volunteer_id"
+    t.boolean   "board_member"
+    t.timestamp "created_at",                    :null => false
+    t.timestamp "updated_at",                    :null => false
+    t.decimal   "time_spent",   :default => 1.0
+    t.integer   "activity_id"
   end
 
   add_index "stars", ["volunteer_id"], :name => "index_stars_on_volunteer_id"
