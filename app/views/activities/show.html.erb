@@ -1,11 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Board Member at:</b>
+<h2>
   <%= @activity.name %>
-</p>
+</h2>
 
 <p>
   <b>Description:</b>
   <%= @activity.description %>
 </p>
+<h3>Volunteers</h3>
+<ul>
+  <% @activity.stars.each do |star| %>
+    <li>
+    <%= render partial: 'stars/star', locals: {star: star} %>
+    <%= link_to star.volunteer.full_name, volunteer_path(star.volunteer) %>
+    <%= star.board_member ? "[Board Member]" : "[Volunteer]" %> 
+    </li>
+  <% end %>
+</ul>

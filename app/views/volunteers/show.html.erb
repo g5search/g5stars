@@ -17,4 +17,4 @@
 
 <td><%= render(partial: 'record_admin', locals: {volunteer: @volunteer}) if signed_in? %></td>
 <br><br>
-<p><%= render partial: 'star_desc', collection: @volunteer.stars.ordered, as: :star %></p>
+<p><%= render partial: 'stars/star_desc', collection: @volunteer.stars.ordered, as: :star %></p>

@@ -10,7 +10,7 @@
   <tr>
 	<td><%= image_tag("#{volunteer.photo_url}", {width: 75}) %></td>  
     <td><%= link_to("#{volunteer.full_name}", volunteer_path(volunteer)) %></td>
-	<td><%= render partial: 'star', collection: volunteer.stars.ordered %></td>
+	<td><%= render partial: 'stars/star', collection: volunteer.stars.ordered %></td>
 	<td><%= render(partial: 'record_admin', locals: {volunteer: volunteer}) if signed_in? %></td>
 
   </tr>
@@ -18,4 +18,7 @@
 </table>
 <br />
 
-<%= link_to('New Volunteer', new_volunteer_path) if signed_in? %>
+<% if signed_in? %>
+  <%= link_to('New Volunteer', new_volunteer_path) %>
+  <%= link_to "New Activity", new_activity_path %>
+<% end %>
