@@ -8,7 +8,7 @@ class Activity < ActiveRecord::Base
 
   def initialized_stars
     [].tap do |o|
-      Volunteer.all.each do |volunteer|
+      Volunteer.order(:first_name, :last_name).all.each do |volunteer|
         if star = stars.find { |star| star.volunteer_id == volunteer.id }
           o << star.tap { |star| star.enable ||= true }
         else

@@ -12,6 +12,7 @@ G5stars::Application.routes.draw do
 
   root :to => "volunteers#index"
 
+  match '/tv' => 'volunteers#tv'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

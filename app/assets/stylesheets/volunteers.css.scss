@@ -1,3 +1,17 @@
 // Place all the styles related to the volunteers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body.tv{
+  background:#000;
+  color:#fff;
+}
+body.tv .sidebar-nav{
+  color:#000;
+  position:fixed;
+  bottom:0;
+  right:0;
+}
+body.tv a{
+  color:#fff;
+  }
+

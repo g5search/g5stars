@@ -10,6 +10,11 @@ class Volunteer < ActiveRecord::Base
 
   after_create :go_get_the_picture_from_g5s_site
 
+  scope :by_stars, select("volunteers.*, count(stars.id) as stars_count").
+                   joins("LEFT JOIN stars ON volunteers.id = stars.volunteer_id").
+                   group('volunteers.id').
+                   order("stars_count DESC, first_name, last_name")
+
   BASE_URL = 'http://www.g5platform.com.g5demo.com/g5_team'
 
   def self.nice_guys

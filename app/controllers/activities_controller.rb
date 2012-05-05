@@ -27,7 +27,6 @@ class ActivitiesController < ApplicationController
 
   def new
     @activity = Activity.new
-    @volunteers = Volunteer.all
   end
 
   def create

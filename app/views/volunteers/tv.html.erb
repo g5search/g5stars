@@ -1,11 +1,11 @@
-<h1>Listing volunteers</h1>
+<div style="position:absolute;top:0;bottom:0;">
+  <marquee direction="up" style="height:100%;" behavior="scroll" scrollamount="2">
 <table>
   <tr>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
 <% @volunteers.each do |volunteer| %>
   <tr>
 	<td><%= image_tag("#{volunteer.photo_url}", {width: 75}) %></td>  
@@ -16,6 +16,8 @@
   </tr>
 <% end %>
 </table>
+</marquee>
+</div>
 <br />
 
 <% if signed_in? %>
