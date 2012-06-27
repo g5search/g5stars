@@ -22,7 +22,7 @@ class Volunteer < ActiveRecord::Base
   end
 
   def full_name
-    "#{first_name.capitalize} #{last_name.capitalize}"
+    "#{first_name.slice(0,1).capitalize + first_name.slice(1..-1)} #{last_name.capitalize}"
   end
 
   def self.all_volunteer
