@@ -1,12 +1,18 @@
 module StarsHelper
+
+  def star_image_tag(color, options={})
+    options.reverse_merge!({width: 32})
+    image_tag "#{color}-star.png", options
+  end
+
   def represent_star(star, options={})
     if star.board_member == true
-     image_tag 'blue-star.png', width: 32, title: star.activity.name
+      star_image_tag('blue', {title: star.activity.name})
     elsif star.activity.name.downcase.include? "blood"
-      image_tag 'red-star.png', width: 32, title: star.activity.name
+      star_image_tag('red', title: star.activity.name)
     else
       puts "#{star.activity.name}"
-      image_tag 'star.png', width: 32, title: star.activity.name 
+      star_image_tag('yellow', title: star.activity.name)
     end
   end
 
@@ -23,7 +29,7 @@ module StarsHelper
       end
     else
       content_tag :div do
-        image_tag('star.png', {width: 32 }) +
+        image_tag('yellow-star.png', {width: 32 }) +
         link_to(star.activity.name, activity_path(star.activity))
       end
     end

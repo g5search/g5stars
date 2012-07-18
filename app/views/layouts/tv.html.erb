@@ -25,11 +25,25 @@
       <div class="row-fluid">
         <div class="span3">
           <div class="well sidebar-nav">
+            <table class='star-legend'>
+              <tr>
+                <td><%= star_image_tag('blue')%></td>
+                <td>board member </td>
+              </tr>
+              <tr>
+                <td><%= star_image_tag('red')%></td>
+                <td>blood donor</td>
+              </tr>
+              <tr>
+                <td><%= star_image_tag('yellow')%></td>
+                <td>volunteer</td>
+              </tr>
+            </table>
+				  	<%= image_tag("g5.png") %>
             <ul class="nav nav-list">
-							<li><%= image_tag("g5.png") %></li>
 							<br>
 	   		  		<li><h2><%= number_to_percentage(Volunteer.participation, precision: 0) %></h2></li>
-			  			<li><h3>Participation Rate</h3></li><br><br>
+			  			<li><h3>Participationz aRate</h3></li><br><br>
               <li><h2><%= Star.donated_blood.count*3 %></h2></li>
               <li><h3>Lives Potentially Saved by G5'ers</h3></li><br><br>
               <li><h2><%= Star.donated_hours.to_i %></h2></li>
