@@ -33,10 +33,11 @@
           <div class="container-fluid nav-collapse">
             <ul class="nav">
               <li><%= link_to("Sign Out", destroy_user_session_path, :method=>'delete') if signed_in? %></li>
+              <li><%= link_to "Account", edit_user_registration_path if signed_in? %>
 			        <li><%= link_to "Sign In?", new_user_session_path if !signed_in? %></li>
               <li><%= link_to "Donations", donations_path if signed_in? %>
             </ul>
-          </div><!--/.nav-collapse --> 
+          </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
