@@ -1,19 +1,54 @@
-<div style="position:absolute;top:0;bottom:0;">
+<div style="position:absolute;top:0;bottom:40px;">
   <marquee direction="up" style="height:100%;" behavior="scroll" scrollamount="1">
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-<% @volunteers.each do |volunteer| %>
-  <tr>
-	<td><%= image_tag("#{volunteer.photo_url}", {width: 75}) %></td>  
-  <td><%= link_to("#{volunteer.full_name}", volunteer_path(volunteer)) %></td>
-	<td><%= render partial: 'stars/star', collection: volunteer.stars.ordered %></td>
-
-  </tr>
-<% end %>
-</table>
-</marquee>
+    <table>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% @volunteers.each do |volunteer| %>
+        <tr>
+          <td><%= image_tag("#{volunteer.photo_url}", {width: 75}) %></td>
+          <td><%= link_to("#{volunteer.full_name}", volunteer_path(volunteer)) %></td>
+          <td><%= render partial: 'stars/star', collection: volunteer.stars.ordered %></td>
+        </tr>
+      <% end %>
+    </table>
+  </marquee>
+</div>
+<div style="position:absolute;bottom:0;left:0;right:0;">
+  <marquee direction="left" style="height:30px;" behavior="scroll" scrollamount="1">
+  Organizations G5 supports:
+    <% organizations = [
+  'Accelerate Bend',
+  'Bend Science Station (E)',
+  'BendFilm (C)',
+  'Bends Community Center (C)',
+  'Bethlehem Inn ©',
+  'Big Brothers, Big Sisters (C)',
+  'BMPR Foundation (C)',
+  'BMPR Gopher Broke ©',
+  'Boys & Girls Club ©',
+  'Caster Family Enterprises-American Diabetes Assoc. ©',
+  'Environmental Center (EV)',
+  'FAN (Family Access Network) C',
+  'Habitat for Humanity',
+  'High Desert Museum (C)',
+  'Highland Elementary (E)',
+  'Kids Center©',
+  'Kids in the Game ©',
+  'OSU-Cascades (E)',
+  'Saving Grace ©',
+  'Sparrow ©',
+  'St. Francis School (E)',
+  'Summit and Bend High-Rotary Sports ©',
+  'TedX 2012 ©',
+  'The Tower Theatre (E)',
+  'The Trust for Public Land (E)',
+  'Twilight Tunes ©',
+  'Volunteer Connect ©']%>
+  <% organizations.each do |organization| %>
+    <%= "<span style='color:#{cycle('','#F47323')}'>&nbsp;&nbsp;&nbsp;#{organization}&nbsp;&nbsp;&nbsp;</span>".html_safe %>
+  <% end %>
+  </marquee>
 </div>
