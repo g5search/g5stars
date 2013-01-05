@@ -37,6 +37,7 @@ group :development, :test do
   gem 'ruby-debug19'
   gem 'awesome_print'
   gem 'ruby-debug19'
+  gem 'pry'
 end
 
 

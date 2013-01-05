@@ -15,7 +15,7 @@ class Volunteer < ActiveRecord::Base
                    group('volunteers.first_name, volunteers.last_name, volunteers.id, volunteers.photo_url, volunteers.created_at, volunteers.updated_at').
                    order("stars_count DESC, first_name, last_name")
 
-  BASE_URL = 'http://www.g5platform.com.g5demo.com/g5_team'
+  BASE_URL = 'http://www.getg5.com/about/g5-team'
 
   def self.nice_guys
     self.joins(:stars).select("distinct(volunteers.id)")
@@ -33,13 +33,17 @@ class Volunteer < ActiveRecord::Base
     (self.nice_guys.count*100).to_f / self.all_volunteer.count.to_f
   end
 
+  def reprocess_picture
+    go_get_the_picture_from_g5s_site
+  end
+
 protected
 
   def go_get_the_picture_from_g5s_site
     begin
       #curl = Curl::Easy.perform(BASE_URL)
       doc = Nokogiri::HTML(open(BASE_URL))
-      photo_url = doc.css('.vcard').find{|div| div.css('span').text == "#{full_name}"}.css('img').first['src'].split("?")[0]
+      photo_url = doc.css('a.profile-link').find{|img| img.css('h4').text == "#{full_name}"}.css("img").attr("src").value
     rescue
       self.update_attribute(:photo_url, "space_stallions.gif")
     else
