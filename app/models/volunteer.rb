@@ -16,6 +16,7 @@ class Volunteer < ActiveRecord::Base
                    order("stars_count DESC, first_name, last_name")
 
   BASE_URL = 'http://www.getg5.com/about/g5-team'
+  MANAGEMENT_URL = 'http://www.getg5.com/about/management-team'
 
   def self.nice_guys
     self.joins(:stars).select("distinct(volunteers.id)")
@@ -42,12 +43,17 @@ protected
   def go_get_the_picture_from_g5s_site
     begin
       #curl = Curl::Easy.perform(BASE_URL)
-      doc = Nokogiri::HTML(open(BASE_URL))
-      photo_url = doc.css('a.profile-link').find{|img| img.css('h4').text == "#{full_name}"}.css("img").attr("src").value
+      begin
+        doc = Nokogiri::HTML(open(BASE_URL))
+        photo_url = doc.css('a.profile-link').find{|img| img.css('h4').text == "#{full_name}"}.css("img").attr("src").value
+        self.update_attribute(:photo_url, photo_url)
+      rescue
+        doc = Nokogiri::HTML(open(MANAGEMENT_URL))
+        photo_url = 'http://www.getg5.com'.concat doc.css('div.g5-people').find{|nodes| nodes.css('a').text == "#{full_name}"}.css("img").attr("src").value
+        self.update_attribute(:photo_url, photo_url)
+      end
     rescue
       self.update_attribute(:photo_url, "space_stallions.gif")
-    else
-      self.update_attribute(:photo_url, photo_url)
     end
   end
 
