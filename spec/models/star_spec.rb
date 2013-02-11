@@ -2,17 +2,16 @@ require 'spec_helper'
 
 describe Star do
   describe "validations" do
-    it "can't save without activity_name" do
-      s = Star.new
-      s.should_not be_valid
-      s.errors[:activity_name].should_not be_empty
-    end
-    it "can't save without time_spent" do
-      s = Star.new
-      s.time_spent = ""
-      s.should_not be_valid
-      s.errors[:time_spent].should_not be_empty
-    end
+    # it "can't save without activity_name" do
+    #   s = Star.new
+    #   s.should_not be_valid
+    #   s.errors[:activity_name].should_not be_empty
+    # end
+    # it "can't save without time_spent" do
+    #   s = Star.new
+    #   s.should_not be_valid
+    #   s.errors[:time_spent].should_not be_empty
+    # end
     it "can't save time that isn't a number" do
       s = Star.new
       s.time_spent = "booger"
@@ -20,7 +19,7 @@ describe Star do
       s.errors[:time_spent].should_not be_empty
     end
   end
-  
+
   describe "ordered" do
     before do
       @volunteer = FactoryGirl.create(:volunteer)

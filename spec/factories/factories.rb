@@ -1,11 +1,11 @@
-FactoryGirl.define do 
+FactoryGirl.define do
 
   factory :volunteer do
     sequence(:first_name) {|n| "Joe#{n}"}
     last_name "Smith"
 
     factory :volunteer_who_donated_blood do
-      after_create do |v|
+      after(:create) do |v|
         FactoryGirl.create(:blood_star, :volunteer => v)
       end
     end
