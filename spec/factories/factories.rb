@@ -30,4 +30,10 @@ FactoryGirl.define do
     name "some activity"
   end
 
+  factory :donation do
+    recipient "some organization"
+    value "12345"
+    donation_time Date.today
+  end
+
 end

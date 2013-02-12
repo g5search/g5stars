@@ -56,7 +56,9 @@
               <li><h2><%= Star.this_year.donated_hours.to_i %></h2></li>
               <li><h3>Hours Spent Volunteering</h3></li><br><br>
 			  			<li><h2>$<%= Donation.total_donated.to_i%></h2></li>
-              <li><h3>Dollars Donated</h3></li>
+              <li><h3>Dollars Donated Total</h3></li><br><br>
+              <li><h2>$<%= Donation.this_year.total_donated.to_i%></h2></li>
+              <li><h3>Dollars Donated for <%= Date.today.year %></h3></li>
             </ul>
 					</div><!--/.well -->
         </div><!--/span-->
