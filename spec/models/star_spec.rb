@@ -42,4 +42,13 @@ describe Star do
       @bs_1.activity.should == @activity
     end
   end
+
+  describe ".this_year" do
+    it "gets a list of stars from the current year" do
+      star1 = FactoryGirl.create(:star, created_at: Date.today.prev_year)
+      star2 = FactoryGirl.create(:star,created_at: Date.today.end_of_year)
+      Star.this_year.should_not include(star1)
+      Star.this_year.should include(star2)
+    end
+  end
 end

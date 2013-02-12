@@ -19,7 +19,7 @@ class Volunteer < ActiveRecord::Base
   MANAGEMENT_URL = 'http://www.getg5.com/about/management-team'
 
   def self.nice_guys
-    self.joins(:stars).select("distinct(volunteers.id)")
+    self.joins(:stars).merge(Star.this_year).select("distinct(volunteers.id)")
   end
 
   def full_name

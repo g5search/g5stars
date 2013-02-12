@@ -10,6 +10,7 @@ class Star < ActiveRecord::Base
 
   scope :ordered, order("board_member DESC")
   scope :donated_blood, joins(:activity).where("name like ?", "%Blood%")
+  scope :this_year, where(created_at: Date.today.beginning_of_year.beginning_of_day..Date.today.end_of_year.end_of_day)
 
   def self.donated_hours
     self.all.sum(&:time_spent).to_s
