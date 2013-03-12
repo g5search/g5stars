@@ -1,6 +1,7 @@
 #require 'curb'
 require 'open-uri'
 require 'nokogiri'
+require 'nameize'
 
 class Volunteer < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :photo_url
@@ -23,7 +24,7 @@ class Volunteer < ActiveRecord::Base
   end
 
   def full_name
-    "#{first_name.slice(0,1).capitalize + first_name.slice(1..-1)} #{last_name.capitalize}"
+    "#{first_name} #{last_name}".nameize
   end
 
   def self.all_volunteer
