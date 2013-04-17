@@ -42,7 +42,7 @@ class Volunteer < ActiveRecord::Base
 protected
 
   def go_get_the_picture_from_g5s_site
-    unless self.photo_url.empty?
+    unless self.photo_url.present?
       name_regexp = /#{Regexp.escape(first_name)}\s+#{Regexp.escape(last_name)}/
       begin
         #curl = Curl::Easy.perform(BASE_URL)
