@@ -42,21 +42,22 @@ class Volunteer < ActiveRecord::Base
 protected
 
   def go_get_the_picture_from_g5s_site
-    name_regexp = /#{Regexp.escape(first_name)}\s+#{Regexp.escape(last_name)}/
-    begin
-      #curl = Curl::Easy.perform(BASE_URL)
+    unless self.photo_url.empty?
+      name_regexp = /#{Regexp.escape(first_name)}\s+#{Regexp.escape(last_name)}/
       begin
-        doc = Nokogiri::HTML(open(BASE_URL))
-        photo_url = doc.css('a.profile-link').find{|img| img.css('h4').text.match(name_regexp)}.css("img").attr("src").value
-        self.update_attribute(:photo_url, photo_url)
+        #curl = Curl::Easy.perform(BASE_URL)
+        begin
+          doc = Nokogiri::HTML(open(BASE_URL))
+          photo_url = doc.css('a.profile-link').find{|img| img.css('h4').text.match(name_regexp)}.css("img").attr("src").value
+          self.update_attribute(:photo_url, photo_url)
+        rescue
+          doc = Nokogiri::HTML(open(MANAGEMENT_URL))
+          photo_url = 'http://www.getg5.com'.concat doc.css('div.g5-people').find{|nodes| nodes.css('a').text.match(name_regexp)}.css("img").attr("src").value
+          self.update_attribute(:photo_url, photo_url)
+        end
       rescue
-        doc = Nokogiri::HTML(open(MANAGEMENT_URL))
-        photo_url = 'http://www.getg5.com'.concat doc.css('div.g5-people').find{|nodes| nodes.css('a').text.match(name_regexp)}.css("img").attr("src").value
-        self.update_attribute(:photo_url, photo_url)
+        self.update_attribute(:photo_url, "space_stallions.gif")
       end
-    rescue
-      self.update_attribute(:photo_url, "space_stallions.gif")
     end
   end
-
 end
