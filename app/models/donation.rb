@@ -4,6 +4,6 @@ class Donation < ActiveRecord::Base
   scope :this_year, where(created_at: Date.today.beginning_of_year.beginning_of_day..Date.today.end_of_year.end_of_day)
 
   def self.total_donated
-    self.all.sum(&:value).to_s
+    self.where("value IS NOT NULL").sum(&:value).to_s
   end
 end
