@@ -1,19 +1,20 @@
 source 'https://rubygems.org'
+ruby "1.9.3"
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.17'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'twitter-bootstrap-rails', '2.0.6'
-gem 'devise'
+gem 'devise', '2.2.8'
 gem 'inherited_resources'
 #gem 'curb'
-gem 'heroku'
-gem 'nokogiri'
+gem 'nokogiri', '1.5.11'
 
 group :production do
   gem 'pg'
+  gem 'unicorn'
 end
 
 # Gems used only for assets and not required
@@ -37,7 +38,6 @@ group :development, :test do
   gem 'sqlite3'
   gem 'ruby-debug19'
   gem 'awesome_print'
-  gem 'ruby-debug19'
   gem 'pry'
 end
 
