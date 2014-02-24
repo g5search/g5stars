@@ -10,7 +10,6 @@ gem 'twitter-bootstrap-rails', '2.0.6'
 gem 'devise', '2.2.8'
 gem 'inherited_resources'
 #gem 'curb'
-gem 'heroku'
 gem 'nokogiri'
 
 group :production do
