@@ -99,7 +99,7 @@ GEM
     method_source (0.8.1)
     mime-types (1.25.1)
     multi_json (1.8.4)
-    nokogiri (1.5.6)
+    nokogiri (1.5.11)
     nyan-cat-formatter (0.2.0)
     orm_adapter (0.5.0)
     pg (0.14.1)
@@ -214,7 +214,7 @@ DEPENDENCIES
   factory_girl_rails
   inherited_resources
   jquery-rails
-  nokogiri
+  nokogiri (= 1.5.11)
   nyan-cat-formatter
   pg
   pry
