@@ -1,6 +1,6 @@
 class ChangeColumnName < ActiveRecord::Migration
   def up
-    change_column :stars, :employee_id, :volunteer_id
+    change_column :stars, :employee_id, :volunteer_id if column_exists?(:stars, :employee_id)
   end
 
   def down
