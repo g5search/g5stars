@@ -11,7 +11,6 @@ describe StarsController do
 
     it "returns http success" do
       get 'new', :volunteer_id => @volunteer.id
-      debugger
       response.should be_success
     end
 
