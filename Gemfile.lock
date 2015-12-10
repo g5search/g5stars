@@ -98,8 +98,10 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.1)
     mime-types (1.25.1)
+    mini_portile2 (2.0.0)
     multi_json (1.10.1)
-    nokogiri (1.5.11)
+    nokogiri (1.6.7)
+      mini_portile2 (~> 2.0.0.rc2)
     nyan-cat-formatter (0.2.0)
     orm_adapter (0.5.0)
     pg (0.14.1)
@@ -214,7 +216,7 @@ DEPENDENCIES
   factory_girl_rails
   inherited_resources
   jquery-rails
-  nokogiri (= 1.5.11)
+  nokogiri (= 1.6.7)
   nyan-cat-formatter
   pg
   pry
@@ -227,3 +229,6 @@ DEPENDENCIES
   twitter-bootstrap-rails (= 2.0.6)
   uglifier (>= 1.0.3)
   unicorn
+
+BUNDLED WITH
+   1.10.6
