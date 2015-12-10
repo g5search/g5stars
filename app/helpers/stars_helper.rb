@@ -6,6 +6,7 @@ module StarsHelper
   end
 
   def represent_star(star, options={})
+    return if star.activity.blank?
     if star.board_member == true
       star_image_tag('blue', {title: star.activity.name})
     elsif star.activity.name.downcase.include? "blood"
@@ -17,6 +18,7 @@ module StarsHelper
   end
 
   def represent_star_with_description(star)
+    return if star.activity.blank?
     if star.board_member == true
       content_tag :div do
         image_tag('blue-star.png', { width: 32 }) +
